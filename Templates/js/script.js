@@ -10,7 +10,7 @@ window.addEventListener('scroll', function () {
 });
 
 
-
+// Slider
 const imgPosition = document.querySelectorAll('.aspect-ratio-169 img');
 const imgContainer = document.querySelector('.aspect-ratio-169');
 const dotItem = document.querySelectorAll('.dot');
@@ -42,6 +42,7 @@ function slider(index) {
 setInterval(runSlider, 5000);
 
 
+//Category slide bar
 const itemslidebar = document.querySelectorAll('.category-left-li');
 itemslidebar.forEach((item) => {
     item.addEventListener('click', () => {
@@ -49,3 +50,38 @@ itemslidebar.forEach((item) => {
         item.querySelector('ul').classList.toggle('block');
     });
 });
+
+//product details
+
+const bigImg = document.querySelector('.product-content-left-big-img img');
+const smallImg = document.querySelectorAll('.product-content-left-small-img img');
+smallImg.forEach((imgItem, X) => {
+    imgItem.addEventListener('click', () => {
+        bigImg.src = imgItem.src;
+    });
+});
+
+
+
+const baoquan = document.querySelector('.baoquan');
+const chitiet = document.querySelector('.chitiet');
+
+if(baoquan) {
+    baoquan.addEventListener('click', () => {
+        document.querySelector(".product-content-right-bottom-content-chitiet").style.display = "none";
+        document.querySelector(".product-content-right-bottom-content-baoquan").style.display = "block";
+    });
+}
+if(chitiet) {
+    chitiet.addEventListener('click', () => {
+        document.querySelector(".product-content-right-bottom-content-chitiet").style.display = "block";
+        document.querySelector(".product-content-right-bottom-content-baoquan").style.display = "none";
+    });
+}
+
+const button= document.querySelector('.product-content-right-bottom-top');
+if(button){
+    button.addEventListener('click', () => {
+        document.querySelector(".product-content-right-bottom-content-big").classList.toggle("activeB");
+    });
+}
